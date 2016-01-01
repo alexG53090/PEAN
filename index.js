@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.get('/', function(req, res, next){
-  res.send('sup, Foo? Nothing, Bar!')
+  res.redirect('/index.html')
 })
 
 app.listen(3000, function(){
