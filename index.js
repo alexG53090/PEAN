@@ -23,13 +23,19 @@ app.post('/addwish', function(req, res, next){
     wish: req.body.wish,
     radness: req.body.radness,
     complete: req.body.complete,
-  }, 'user').then(function(user){
-    console.log('fuck');
+  }, 'wish').then(function(wish){
+    console.log('added to DB:', wish );
   })
 })
 
 app.get('/main', function(req, res, next){
   res.redirect('/main.html')
+})
+
+app.get('/get', function(res, res, next){
+  knex('lastwish').select().then(function(lastwish){
+    res.status(200).json({lastwish: lastwish});
+  })
 })
 
 app.listen(3000, function(){
