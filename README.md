@@ -5,7 +5,7 @@ It is a hand-curated collection of  web technologies. Together, these technologi
 
 ##### Technologies:
 ```
-- Front-end: Vanilla JavaScript
+- Front-end: Vanilla JavaScript and D3.js
 - Server: Express.js
 - Database: PostgreSQL
 - DB Query Builder: Knex.js
