@@ -55,21 +55,19 @@ function dataVisual(wishArray){
     var currentObj = wishArray[j];
       // console.log(currentObj)
   }
+  var wishActivity = [];
   wishArray.forEach(function(item, index, array){
-    for(var wish in item){
-      console.log(item[wish])
-    }
-    console.log(item)
+    var radLevel = item.radLevel;
+    var action = item.activity;
+    wishActivity.push(radLevel)
   })
-
+  console.log(wishActivity)
   var w = 600,  //width
   h = 600,    //height
   r = 300,     //radius
   color = d3.scale.category20c();     //builtin range of colors
 
-  data = [{"label":"one", "value":20},
-          {"label":"two", "value":50},
-          {"label":"three", "value":30}];
+  data = wishActivity;
 
   var vis = d3.select("body")
       .append("svg:svg")              //create the SVG element inside the <body>
