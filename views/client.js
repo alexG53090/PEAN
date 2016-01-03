@@ -31,37 +31,42 @@ function formatWishData(data){
 
 function formatWishes(wishes){
   return new Promise(function(resolve, reject){
-    var activities = []
-    var radnessLevels = []
-    var completedWishes = []
-    var people = []
     var wishArray = []
     wishes.forEach(function(item, index, array){
+      var wishObject = {}
       var activity = item.wish
       var radLevel = item.radness
       var status = item.complete
       var person = item.user
-      activities.push(activity)
-      radnessLevels.push(radLevel)
-      completedWishes.push(status)
-      people.push(person)
+      wishObject.activity = activity;
+      wishObject.radLevel = radLevel;
+      wishObject.status = status;
+      wishObject.person = person;
+      wishArray.push(wishObject)
     })
-    activities.unshift('wishes')
-    wishArray.push(activities)
-    wishArray.push(radnessLevels)
-    wishArray.push(completedWishes)
-    wishArray.push(people)
     resolve(wishArray)
   })
 }
 
 function dataVisual(wishArray){
   return new Promise(function(resolve, reject){
+  // console.log(wishArray)
+  for(j = 0; j < wishArray.length; j = j + 1){
+    var currentObj = wishArray[j];
+      // console.log(currentObj)
+  }
+  wishArray.forEach(function(item, index, array){
+    for(var wish in item){
+      console.log(item[wish])
+    }
+    console.log(item)
+  })
+
   var w = 600,  //width
   h = 600,    //height
   r = 300,     //radius
   color = d3.scale.category20c();     //builtin range of colors
-  
+
   data = [{"label":"one", "value":20},
           {"label":"two", "value":50},
           {"label":"three", "value":30}];
@@ -95,7 +100,7 @@ function dataVisual(wishArray){
           .attr("text-anchor", "middle")                          //center the text on it's origin
           .text(function(d, i) { return data[i].label; });        //get the label from our original data array
 
-    var data = wishArray
+    ////////////////////// bar chart
 
     var x = d3.scale.linear()
       .domain([0, d3.max(data)])
@@ -108,6 +113,6 @@ function dataVisual(wishArray){
     .enter().append("div")
       .style("width", function(d) { return x(d) + "px"; })
       .text(function(d) { return d; })
-      console.log(wishArray)
+      // console.log(wishArray)
   })
 }
