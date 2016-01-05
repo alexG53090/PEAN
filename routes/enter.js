@@ -12,7 +12,6 @@ var knex = require('../db/knex');
 //     radness: req.body.radness,
 //     complete: req.body.complete,
 //   }, 'user').then(function(user){
-//     console.log('fuck');
 //   })
 // })
 
